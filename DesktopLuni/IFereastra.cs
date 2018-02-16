@@ -18,6 +18,7 @@ namespace DesktopLuni
 
         string Titlu { get; }
         void Move(int deltaLinii, int deltaColoane);
+        //void SetZorder(int index);
 
     }
 }

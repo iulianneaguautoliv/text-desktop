@@ -6,25 +6,44 @@ using System.Threading.Tasks;
 
 namespace DesktopLuni
 {
-    class FereastraB:Fereastra
+    class FereastraB:Fereastra,ITextEditor
     {
         public FereastraB(string Titlu, int Latime, int Inaltime, int Linie, int Coloana) : base(Titlu, Latime,
             Inaltime, Linie, Coloana)
         {
-            
+            _SavedTexts  =new List<string>();
+            _SavedLines = new List<int>();
+            _SavedColumns=new List<int>();
         }
+
         protected override void DesenareSpecifica(Canvas can)
         {
-            
-
-        
-            for (int linie = _StangaSusLinie + 1; linie < _StangaSusLinie + _Inaltime - 1; linie++)
+            if (_SavedTexts.Count != 0)
             {
-                for (int coloana = _StangaSusColoana + 1; coloana < _StangaSusColoana + _Latime - 1; coloana++)
+                for (int i=0;i<_SavedTexts.Count;i++)
                 {
-                    can.Set(linie, coloana, 'B');
+
+                    TextHelper.PutText(_SavedTexts[i], _StangaSusLinie + _SavedLines[i], _StangaSusColoana + _SavedColumns[i],
+                        can);
+
                 }
             }
         }
-}
+
+        private List<string> _SavedTexts;
+        private List<int> _SavedLines;
+        private List<int> _SavedColumns;
+
+        public void AddText(string str, int linie, int coloana)
+        {
+            _SavedTexts.Add(str); 
+            _SavedLines.Add(linie);
+            _SavedColumns.Add(coloana);
+
+        }
+
+
+
+
+    }
 }

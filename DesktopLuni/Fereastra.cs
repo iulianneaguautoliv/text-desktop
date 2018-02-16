@@ -63,10 +63,8 @@ namespace DesktopLuni
                 canvas.Set(linie, _StangaSusColoana, '*');
                 canvas.Set(linie, _StangaSusColoana + _Latime - 1, '*');
             }
-            for (int i = 0; i < _Titlu.Length; i++)
-            {
-                canvas.Set(_StangaSusLinie, _StangaSusColoana + 2 + i, _Titlu[i]);
-            }
+            TextHelper.PutText(_Titlu,_StangaSusLinie,_StangaSusColoana+2,canvas);
+            
             DesenareSpecifica(canvas);
 
         }
@@ -101,6 +99,12 @@ namespace DesktopLuni
             _StangaSusColoana += deltaColoane;
 
         }
+
+        //public void SetZorder(int index)
+        //{
+            
+        //}
+        
 
     }
 }

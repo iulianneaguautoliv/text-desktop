@@ -41,10 +41,7 @@ namespace DesktopLuni
                     f.Desenare(_c);
                 else
                 {
-                    for (int k = 0; k < f.Titlu.Length; k++)
-                    {
-                        _c.Set(_c.NrLinii - 1, poz+k, f.Titlu[k]);
-                    }
+                    TextHelper.PutText(f.Titlu,_c.NrLinii-1,poz,_c);
                     poz += f.Titlu.Length+2;
 
                 }
@@ -63,10 +60,21 @@ namespace DesktopLuni
            
         }
 
-        public void AduInFata(IFereastra f)
+        //public void AduInFata(IFereastra f)
+        //{
+        //    _ferestre.Remove(f);
+        //    _ferestre.Add(f);
+        //}
+
+        public void SetZorder(int zindex, IFereastra f)
         {
+            if (zindex  >=_ferestre.Count||zindex<0)
+            {
+                return;
+            }
             _ferestre.Remove(f);
-            _ferestre.Add(f);
+            _ferestre.Insert(_ferestre.Count-zindex,f);
+
         }
 
     }

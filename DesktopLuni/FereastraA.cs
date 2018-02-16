@@ -17,7 +17,6 @@ namespace DesktopLuni
 
         protected override void DesenareSpecifica(Canvas can)
         {
-           //base.Desenare(can);
            
             for (int linie = _StangaSusLinie+1; linie < _StangaSusLinie + _Inaltime-1; linie++)
             {
@@ -27,5 +26,8 @@ namespace DesktopLuni
                 }
             }
         }
+
+        
+
     }
 }

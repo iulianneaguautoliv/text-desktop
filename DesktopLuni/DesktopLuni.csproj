@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddobeReader.cs" />
     <Compile Include="Canvas.cs" />
     <Compile Include="Desktop.cs" />
     <Compile Include="Fereastra.cs" />
     <Compile Include="FereastraA.cs" />
     <Compile Include="FereastraB.cs" />
     <Compile Include="IFereastra.cs" />
+    <Compile Include="IFileReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ITextEditor.cs" />
+    <Compile Include="TextHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
