@@ -8,7 +8,7 @@ namespace DesktopLuni
 {
     interface IFereastra
     {
-        void Desenare(Canvas canvas);
+        void Desenare(IDeviceContext dc);
         void Ascunde();
         void Minimize();
         bool Minimizat
@@ -19,6 +19,10 @@ namespace DesktopLuni
         string Titlu { get; }
         void Move(int deltaLinii, int deltaColoane);
         //void SetZorder(int index);
+        int StangaSusLinie { get; }
+        int StangaSusColoana { get; }
+        int Latime { get; }
+        int Inaltime { get; }
 
     }
 }

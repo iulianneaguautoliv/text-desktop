@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesktopLuni
 {
-    class Canvas
+    class Canvas:IDeviceContext
     {
         private int _NrColoane;
         private int _NrLinii;
@@ -40,9 +40,49 @@ namespace DesktopLuni
         }
         public void Set(int linie, int coloana, char c)
         {
+
             if (linie >= 0 && linie < _NrLinii && coloana >= 0 && coloana < _NrColoane)
             {
                 _Panza[linie, coloana] = c;
+            }
+
+        }
+
+        private void SetLocal(int linie, int coloana, char c, IFereastra f)
+        {
+            if (linie >= 0 && linie+f.StangaSusLinie < _NrLinii && coloana >= 0 && coloana+f.StangaSusColoana < _NrColoane)
+            {
+                _Panza[linie + f.StangaSusLinie, coloana + f.StangaSusColoana] = c;
+            }
+            else
+            {
+                Console.WriteLine("Necesita mai multa atentie");
+            }
+
+        }
+
+        public void PutChar(int linie, int coloana, char c, IFereastra f,bool inside=true)
+        {
+            if (linie < 0 || linie >= f.Inaltime||linie+f.StangaSusLinie>_NrLinii-1|| 
+                coloana < 0 || coloana >= f.Latime || coloana + f.StangaSusColoana > _NrColoane - 1)
+            {
+                return;
+            }
+            if (inside == true)
+            {
+                SetLocal(linie + 1, coloana + 1, c, f);
+            }
+            else
+            {
+                SetLocal(linie, coloana, c, f);
+            }
+            
+        }
+        public void PutString(string text, int linie, int coloana, IFereastra f, bool inside=true)
+        {
+            for (int i = 0; i < text.Length; i++)
+            {
+                PutChar(linie, coloana + i, text[i], f,inside);
             }
         }
     }

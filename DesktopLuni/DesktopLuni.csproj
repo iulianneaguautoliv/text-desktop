@@ -49,6 +49,7 @@
     <Compile Include="Fereastra.cs" />
     <Compile Include="FereastraA.cs" />
     <Compile Include="FereastraB.cs" />
+    <Compile Include="IDeviceContext.cs" />
     <Compile Include="IFereastra.cs" />
     <Compile Include="IFileReader.cs" />
     <Compile Include="Program.cs" />

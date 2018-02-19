@@ -19,7 +19,7 @@ namespace DesktopLuni
 
        public Desktop()
        {
-            _c = new Canvas(75, 25);
+            _c = new Canvas(80, 30);
             _ferestre = new List<IFereastra>();
             for (int coloana = 0; coloana < _c.NrColoane; coloana++)
             {

@@ -34,9 +34,9 @@ namespace DesktopLuni
             _StangaSusColoana = 0;
         }
 
-        protected abstract void DesenareSpecifica(Canvas canvas);
+        protected abstract void DesenareSpecifica(IDeviceContext dc);
        
-        public void Desenare(Canvas canvas)
+        public void Desenare(IDeviceContext dc)
         {
             if (_vizibilitate == false)
             {
@@ -45,27 +45,32 @@ namespace DesktopLuni
 
 
 
+            //interiorul ferestrei
 
-            for (int linie = _StangaSusLinie; linie < _StangaSusLinie + _Inaltime; linie++)
+            for (int linie = 0; linie < _Inaltime; linie++)
             {
-                for (int coloana = _StangaSusColoana; coloana < _StangaSusColoana + _Latime; coloana++)
+                for (int coloana = 0; coloana < _Latime; coloana++)
                 {
-                    canvas.Set(linie, coloana, ' ');
+                    dc.PutChar(linie, coloana, ' ', this,false);
                 }
             }
-            for (int coloana = _StangaSusColoana; coloana < _StangaSusColoana + _Latime; coloana++)
+            //marginea de sus si cea de jos a ferestrei
+
+            for (int coloana = 0; coloana <  _Latime; coloana++)
             {
-                canvas.Set(_StangaSusLinie, coloana, '*');
-                canvas.Set(_StangaSusLinie + _Inaltime - 1, coloana, '*');
+                dc.PutChar(0, coloana, '*',this,false);
+                dc.PutChar(_Inaltime - 1, coloana, '*',this,false);
             }
-            for (int linie = _StangaSusLinie; linie < _StangaSusLinie + _Inaltime; linie++)
+            //margini verticale stanga-dreapta
+
+            for (int linie = 0; linie <  _Inaltime; linie++)
             {
-                canvas.Set(linie, _StangaSusColoana, '*');
-                canvas.Set(linie, _StangaSusColoana + _Latime - 1, '*');
+                dc.PutChar(linie,0 , '*',this,false);
+                dc.PutChar(linie,  _Latime - 1, '*',this,false);
             }
-            TextHelper.PutText(_Titlu,_StangaSusLinie,_StangaSusColoana+2,canvas);
+            dc.PutString(_Titlu,0,2,this,false);
             
-            DesenareSpecifica(canvas);
+            DesenareSpecifica(dc);
 
         }
     
@@ -100,11 +105,12 @@ namespace DesktopLuni
 
         }
 
-        //public void SetZorder(int index)
-        //{
-            
-        //}
-        
+        public int StangaSusLinie => _StangaSusLinie;
+        public int StangaSusColoana => _StangaSusColoana;
+        public int Inaltime => _Inaltime;
+        public int Latime => _Latime;
+
+
 
     }
 }

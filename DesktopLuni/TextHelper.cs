@@ -15,5 +15,7 @@ namespace DesktopLuni
                 canv.Set(linie, coloana + i, text[i]);
             }
         }
+
+
     }
 }

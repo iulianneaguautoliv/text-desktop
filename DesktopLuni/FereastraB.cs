@@ -11,39 +11,44 @@ namespace DesktopLuni
         public FereastraB(string Titlu, int Latime, int Inaltime, int Linie, int Coloana) : base(Titlu, Latime,
             Inaltime, Linie, Coloana)
         {
-            _SavedTexts  =new List<string>();
-            _SavedLines = new List<int>();
-            _SavedColumns=new List<int>();
+
+            _SavedTexts = new List<SavedText>();
         }
 
-        protected override void DesenareSpecifica(Canvas can)
+        protected override void DesenareSpecifica(IDeviceContext dc)
         {
             if (_SavedTexts.Count != 0)
             {
                 for (int i=0;i<_SavedTexts.Count;i++)
                 {
 
-                    TextHelper.PutText(_SavedTexts[i], _StangaSusLinie + _SavedLines[i], _StangaSusColoana + _SavedColumns[i],
-                        can);
+                    dc.PutString(_SavedTexts[i].text,  _SavedTexts[i].line, _SavedTexts[i].column
+                        ,this,true);
 
                 }
             }
         }
 
-        private List<string> _SavedTexts;
-        private List<int> _SavedLines;
-        private List<int> _SavedColumns;
+        
+        private List<SavedText> _SavedTexts;
 
         public void AddText(string str, int linie, int coloana)
         {
-            _SavedTexts.Add(str); 
-            _SavedLines.Add(linie);
-            _SavedColumns.Add(coloana);
+            SavedText st=new SavedText();
+            st.text=str; 
+            st.line=linie;
+            st.column=coloana;
+            _SavedTexts.Add(st);
 
         }
 
 
-
+        class SavedText
+        {
+            public string text;
+            public int line;
+            public int column;
+        }
 
     }
 }

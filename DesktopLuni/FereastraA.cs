@@ -15,14 +15,14 @@ namespace DesktopLuni
             
         }
 
-        protected override void DesenareSpecifica(Canvas can)
+        protected override void DesenareSpecifica(IDeviceContext dc)
         {
            
-            for (int linie = _StangaSusLinie+1; linie < _StangaSusLinie + _Inaltime-1; linie++)
+            for (int linie = 1; linie < _Inaltime-1; linie++)
             {
-                for (int coloana = _StangaSusColoana+1; coloana < _StangaSusColoana + _Latime-1; coloana++)
+                for (int coloana = 1; coloana < _Latime-1; coloana++)
                 {
-                    can.Set(linie, coloana, 'A');
+                    dc.PutChar(linie, coloana, 'A',this);
                 }
             }
         }
