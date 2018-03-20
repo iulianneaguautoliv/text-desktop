@@ -1,0 +1,8 @@
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\bin\Debug\Asimov.txt
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\bin\Debug\Asimov2.txt
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\bin\Debug\Working_with_files2_7.exe.config
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\bin\Debug\Working_with_files2_7.exe
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\bin\Debug\Working_with_files2_7.pdb
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\obj\Debug\Working_with_files2_7.csproj.CoreCompileInputs.cache
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\obj\Debug\Working_with_files2_7.exe
+C:\Users\marian.cornea\Documents\Visual Studio 2017\Projects\Working_with_files2\Working_with_files2_7\obj\Debug\Working_with_files2_7.pdb
